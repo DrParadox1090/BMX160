@@ -1,0 +1,105 @@
+#ifndef BMX160_REG_H
+#define BMX160_REG_H
+
+// MAGNETOMETER INTERFACE INDIRECT ADDRESSING MDOE registers
+
+#define MAG_IF_WRITE_DATA 0x4F
+#define MAG_IF_WRITE_ADDR 0x4E
+#define MAG_IF_READ_ADDR  0x4C
+
+// SENSOR CONFIGURATION REGISTERS 
+
+
+
+// BIT MASKS
+
+#define magcg_bm 0b00001111 
+
+
+
+// POWER MODE STATUS
+
+#define power_mode_status 0x03
+
+#define GYRO_PMU   0b00001100
+#define ACC_PMU    0b00110000
+#define MAG_IF_PMU 0b00000011
+
+#define SUSPEND      0b00000000
+#define NORMAL       0b00000001
+#define LOWPOWER     0b00000010
+#define FAST_START   0b00000011
+
+// CHIP ID
+#define chip_id     0x00
+#define CHIP_ID_VAL 0xD8
+
+//RANGE & SENSITIVITY
+#define ACCEL_RANGE_2G  0x03
+#define ACCEL_RANGE_4G  0x05    
+#define ACCEL_RANGE_8G  0x08
+#define ACCEL_RANGE_16G 0x0C
+
+#define GYRO_RANGE_2000DPS 0x00
+#define GYRO_RANGE_1000DPS 0x01
+#define GYRO_RANGE_500DPS  0x02
+#define GYRO_RANGE_250DPS  0x03
+#define GYRO_RANGE_125DPS  0x04
+
+#define ACC_SENSITIVITY_2G          0.000061035F
+#define ACC_SENSITIVITY_4G          0.000122070F
+#define ACC_SENSITIVITY_8G          0.000244141F
+#define ACC_SENSITIVITY_16G         0.000488281F
+
+#define GYRO_SENSITIVITY_2000DPS    0.0609756F
+#define GYRO_SENSITIVITY_1000DPS    0.0304878F
+#define GYRO_SENSITIVITY_500DPS     0.0152439F
+#define GYRO_SENSITIVITY_250DPS     0.0076220F
+#define GYRO_SENSITIVITY_125DPS     0.0038110F
+
+
+//BIT MASSKS
+#define ACC_US_BM   0b10000000
+#define ACC_BWP_BM  0b01110000
+#define ACC_ODR_BM  0b00001111
+
+#define GYRO_BWP_BM 0b00110000
+#define GYRO_ODR_BM 0b00001111
+
+#define MAG_ODR_BM  0b00001111   //0x44
+
+#define ACC_PMU_STATUS_BM    0b00110000
+#define GYRO_PMU_STATUS_BM   0b00001100
+#define MAG_IF_PMU_STATUS_BM 0b00000011
+//SET ACC , GYRO , MAG_IF to NORMAL MDOE USIGN CMD REG
+#define ACC_SET_PMU_MODE    0b00010011
+#define GYRO_SET_PMU_MODE   0b00010111
+#define MAG_IF_PMU_MODE     0b00011011
+
+//REGISTERS 
+#define ACC_CONF   0x40
+#define ACC_RANGE  0x41
+
+#define GYRO_CONF  0x42
+#define GYRO_RANGE 0x43
+
+#define MAG_CONF   0x44
+
+#define MAG_IF0    0x4C  //IF CONFIG
+#define MAG_IF1    0x4D  //Address to Read
+#define MAG_IF2    0x4E  //Address to write
+#define MAG_IF3    0x4F  //Data to write
+
+#define MAG_IF0_RESET   0x80  //IF CONFIG
+#define MAG_IF1_RESET   0x42  //Address to Read
+#define MAG_IF2_RESET   0x4C  //Address to write
+#define MAG_IF3_RESET   0x00  //Data to write
+
+#define PMU_STATUS 0x03 
+
+#define CMD        0x7E
+#define SOFT_RESET 0xB6
+
+#define STATUS     0x1B
+
+#endif 
